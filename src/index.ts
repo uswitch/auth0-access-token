@@ -44,7 +44,7 @@ class AuthClient {
   getToken = async (): Promise<TokenResponse['access_token']> => {
     if (this.response) {
       const { exp } = decodeToken(this.response.access_token)
-      
+
       const now = Date.now() / 1000 + 10 // Adding 10 seconds for safety
 
       if (now < exp) {
