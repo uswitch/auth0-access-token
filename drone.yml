@@ -1,7 +1,7 @@
 pipeline:
   build:
     when:
-      event: [push]
+      event: push
     image: node:14.15-alpine
     commands:
       - git fetch --tags
@@ -10,7 +10,7 @@ pipeline:
 
   eslint:
     when:
-      event: [push]
+      event: push
     image: node:14.15-alpine
     group: checks
     commands:
@@ -18,7 +18,7 @@ pipeline:
 
   prettier:
     when:
-      event: [push]
+      event: push
     image: node:14.15-alpine
     group: checks
     commands:
@@ -27,7 +27,7 @@ pipeline:
 
   build:
     when:
-      event: [push]
+      event: push
     image: node:14.15-alpine
     commands:
       - NODE_ENV=production npm run build
@@ -35,7 +35,7 @@ pipeline:
   publish:
     when:
       branch: master
-      event: [push]
+      event: push
     image: node:14.15-alpine
     secrets: ['npm_token']
     commands:
