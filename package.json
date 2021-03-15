@@ -1,7 +1,7 @@
 {
-  "name": "auth0-client",
+  "name": "auth0-access-token",
   "version": "1.0.0",
-  "description": "Auth0 tool that fetches access tokens",
+  "description": "Tool that fetches access tokens from Auth0",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
