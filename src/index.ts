@@ -8,7 +8,7 @@ interface Payload {
 
 const decodeToken = (token: string) => {
   const [_, payload] = token.split('.')
-  return <Payload> JSON.parse(base64Decode(payload))
+  return JSON.parse(base64Decode(payload)) as Payload
 }
 
 const GRANT_TYPE = 'client_credentials'
