@@ -19,7 +19,7 @@
   ],
   "type": "commonjs",
   "keywords": [],
-  "author": "RVU - Uswitch",
+  "author": "Comms @ RVU - Uswitch",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1"
