@@ -1,0 +1,18 @@
+pipeline:
+  build:
+    when:
+      event: push
+    image: node:14.15-alpine
+    commands:
+      - npm ci
+      - npm run build
+
+  publish:
+    when:
+      branch: master
+      event: push
+    image: node:14.15-alpine
+    secrets: ['npm_token']
+    commands:
+      - npm config set '//registry.npmjs.org/:_authToken' $NPM_TOKEN
+      - npm publish
