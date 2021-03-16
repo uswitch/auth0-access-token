@@ -1,0 +1,22 @@
+// This is the code that generates the sequence diagram. To be used at https://sequencediagram.org/
+frame #DCE4FD Token Request Flow
+participant App
+participant Auth0-Access-Token
+materialdesignicons F163 Auth0
+
+activate App
+App->Auth0-Access-Token:new AuthClient({...})
+activate Auth0-Access-Token
+Auth0-Access-Token->App:clientInstance
+deactivate Auth0-Access-Token
+App->Auth0-Access-Token:client.getToken()
+
+activate Auth0-Access-Token
+opt token = null or expired
+Auth0-Access-Token->Auth0:fetchToken()
+activate Auth0
+Auth0->Auth0-Access-Token:returns token
+deactivate Auth0
+end
+Auth0-Access-Token->App: returns token
+deactivate Auth0-Access-Token
