@@ -2,7 +2,7 @@ pipeline:
   build:
     when:
       event: push
-    image: node:14.15-alpine
+    image: node:18.16-alpine
     commands:
       - npm ci
       - npm run build
@@ -11,7 +11,7 @@ pipeline:
     when:
       branch: master
       event: push
-    image: node:14.15-alpine
+    image: node:18.16-alpine
     secrets: ['npm_token']
     commands:
       - npm config set '//registry.npmjs.org/:_authToken' $NPM_TOKEN
